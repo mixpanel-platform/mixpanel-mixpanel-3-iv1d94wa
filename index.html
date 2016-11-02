@@ -30,9 +30,14 @@
         var eventName = eventSelect.MPEventSelect('value'),
             propName  = propSelect.MPPropertySelect('value'),
             dateRange = dateSelect.MPDatepicker('value');
+            var params = {
+    type: 'average',     // analysis type for the data, can be 'general', 'unique', or 'average'
+    unit: 'month',        // level of granularity of the data, can be 'minute', 'hour', 'day', 'week', 'month'
+    interval: 5         // number of "units" back to include
+};
 
         if (eventName) {
-          MP.api.segment(eventName, propName, dateRange).done(function(results) {
+          MP.api.events('Viewed docs',params ).done(function(results) {
             eventGraph.MPChart('setData', results);
             eventTable.MPTable('setData', results);
           });
@@ -43,8 +48,7 @@
         $("#by").show();
         runQuery();
       });
-      propSelect.on('change', runQuery);
-      dateSelect.on('change', runQuery);
+     runquery()
     </script>
   </body>
 </html>
