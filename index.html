@@ -23,7 +23,7 @@
     type: 'average',     
     unit: 'month',     
     interval: 5        
-      } )
+      } );
         
       
      
@@ -69,15 +69,15 @@
                 //     chartType: 'bar',
                 //     data: fourthChartData
                 // });
-                //$('.mixpanel-platform-multi_selector').css({'clear':'both'});
-                //$('.title').css({'width':'55px'});
+                $('.mixpanel-platform-multi_selector').css({'clear':'both'});
+                $('.title').css({'width':'55px'});
                 $('.color_toggle_dropdown').each(function(){this.style.setProperty('width', '170px', 'important')});
                 $('.title').each(function(){this.style.setProperty('width', '105px', 'important')});
                 
             }
             
             
-            drawGraph(first_chart.values(), second_chart.values); //, second_chart.values(), third_chart.values(), fourth_chart.values());
+            drawGraph(first_chart.values(), second_chart.values()); //, second_chart.values(), third_chart.values(), fourth_chart.values());
             
         });
      });
