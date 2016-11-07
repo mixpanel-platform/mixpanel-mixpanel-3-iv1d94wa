@@ -60,11 +60,31 @@
         */
         
         // [EDIT CHART] If you've added any additional charts, you will need to add the variable name twice in the following code
-        //example, if you added 'twentieth_chart' above, you will edit the code to say:
+        //e.g. if you added 'twentieth_chart' above, you will edit the code to say:
         // $.when(first_chart, second_chart, twentieth_chart).done(function(first_chart, second_chart, twentieth_chart){
         $.when(first_chart, second_chart).done(function(first_chart, second_chart){ //, second_chart, third_chart, fourth_chart).done(function(first_chart, second_chart, third_chart, fourth_chart) {
             
            
+            //[EDIT CHART] - If you added a any additional charts, and you added another argument to the $when().done() function above, you will need to come up with a new variable name that can be used in the following funciton that creates the new chart. 
+            //e.g. if you added // $.when(first_chart, second_chart, twentieth_chart).done(function(first_chart, second_chart, twentieth_chart){ above, you would want something like:
+            
+            
+            // var drawGraph = function(firstChartData, secondChartData, twentiethChartData){ 
+          
+            //     $('<div class="first"></div>').css({'width':'460px', 'float':'left'}).appendTo('body').MPChart({
+            //         chartType: 'line',
+            //         data: firstChartData
+            //     });
+                
+            //     $('<div class="second"></div>').css({'width':'460px', 'float':'right'}).appendTo('body').MPChart({
+            //         chartType: 'line',
+            //         data: secondChartData
+            //     });
+                
+            //      $('<div class="third"></div>').css({'width':'460px', 'float':'left'}).appendTo('body').MPChart({
+            //          chartType: 'pie',
+            //          data: twentiethChartData
+            //      });
             
             var drawGraph = function(firstChartData, secondChartData){  //, secondChartData, thirdChartData, fourthChartData){
           
