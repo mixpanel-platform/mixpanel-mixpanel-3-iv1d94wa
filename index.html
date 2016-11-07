@@ -36,17 +36,23 @@
                   interval: 5        
                 } 
               );
-        
-      
-     
-        var second_chart = MP.api.events('$custom_event:290234', {
-    type: 'average',     
-    unit: 'month',     
-    interval: 5        
-      } );
+        //[EDIT CHART] IF YOU ADD A CUSTOM EVENT, ADD THE HUMAN READABLE NAME OF THE CUSTOM EVENT NEXT TO THE API CALL
+        var second_chart = MP.api.events('$custom_event:290234', //CUSTOM EVENT: 'Docs new (Karl)'
+              {
+                type: 'average',     
+                unit: 'month',     
+                interval: 5        
+                  }
+              );
        
        //[EDIT CHART] - If you want to add additional charts, you can uncomment one of the below or add your own variable name here - it needs to equal a call to some endpoint like MP.api.charts() and needs to follow the above format.
-       
+       //e.g. :
+          
+      // var twentieth_chart = MP.api.events('Character Created', 'Session End', {
+      //       from: moment().subtract(1, 'months'),
+      //       unit: 'day'
+      //   });
+        
        /*
         var third_chart = MP.api.events('Character Created', 'Session End', {
             from: moment().subtract(1, 'months'),
@@ -107,6 +113,9 @@
                 //     chartType: 'bar',
                 //     data: fourthChartData
                 // });
+                
+                
+                //[EDIT CHART] (Optional) - You can change the size and format of the graphs below
                 $('.mixpanel-platform-multi_selector').css({'clear':'both'});
                 $('.title').css({'width':'55px'});
                 $('.color_toggle_dropdown').each(function(){this.style.setProperty('width', '170px', 'important')});
@@ -114,7 +123,9 @@
                 
             }
             
-            
+            //[EDIT CHART] - if you added a new chart, you will need to grab the values from the MP.api.events() calls that you made so that you can plot this information on the graph. 
+            //e.g. if you declared a variable var twentieth_chart = MP.api.events() at the top of the report, you will need:
+            //drawGraph(first_chart.values(), second_chart.values(), twentieth_chart.values());
             drawGraph(first_chart.values(), second_chart.values()); //, second_chart.values(), third_chart.values(), fourth_chart.values());
             
         });
