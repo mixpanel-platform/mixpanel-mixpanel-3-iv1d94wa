@@ -16,14 +16,26 @@
     </div>
     <div id="table"></div>
     <script>
+    //IN ORDER TO EASILY EDIT THIS CHART, FOLLOW DIRECTIONS FROM ALL THE COMMENTS THAT START WITH '[EDIT CHART]'
+    
      MP.api.ready(function() {
         /*  First Chart */
+        
+            //[EDIT CHART] (Optional, not necessarily recommened as this will add more work) - You can change the API that you get data from from events to Segmentation, Retention, etc
       
-        var first_chart = MP.api.events('Viewed docs', 'Blog - Post Viewed', '$custom_event:74981',{
-    type: 'average',     
-    unit: 'month',     
-    interval: 5        
-      } );
+      //[EDIT CHART] (Optional) - If you want to edit the events that get posted in a given chart, edit the event names here. You can add event names or custom event names as strings before the dictionary property, you can delete event names or you can change the events that are presented.
+  
+      
+        var first_chart = MP.api.events('Viewed docs', 'Blog - Post Viewed', '$custom_event:74981',
+            //[EDIT CHART] (Optional) - you can change parameters here.
+            // e.g. change type from average to unique, change unit from month to day, etc. 
+            //documentation shows all parameters that can be changed for MP.api.events
+                {
+                  type: 'average',     
+                  unit: 'month',     
+                  interval: 5        
+                } 
+              );
         
       
      
@@ -32,6 +44,8 @@
     unit: 'month',     
     interval: 5        
       } );
+       
+       //[EDIT CHART] - If you want to add additional charts, you can uncomment one of the below or add your own variable name here - it needs to equal a call to some endpoint like MP.api.charts() and needs to follow the above format.
        
        /*
         var third_chart = MP.api.events('Character Created', 'Session End', {
@@ -44,6 +58,8 @@
             unit: 'day'
         });
         */
+        
+        
         $.when(first_chart, second_chart).done(function(first_chart, second_chart){ //, second_chart, third_chart, fourth_chart).done(function(first_chart, second_chart, third_chart, fourth_chart) {
             
            
